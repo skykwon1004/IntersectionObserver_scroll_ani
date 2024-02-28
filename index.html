@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            background: black;
+            height: 6000px;
+            font-family: 'nanumsquare';
+        }
+
+        div {
+            margin-top: 1000px;
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+            transition: all 1s;
+            font-size: 16px;
+        }
+    </style>
+
+    <div>
+        <h1>iPhone 15 출시</h1>
+    </div>
+    <div>
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+    </div>
+    <div>
+        <h1>Lorem ipsum dolor sit.</h1>
+    </div>
+    <div><img src="me.jfif" </div>
+
+        <script>
+            let observer = new IntersectionObserver((e) => {
+                // 감시중 박스가 화면에 등장하면 여기 코드 실행해줌
+                e.forEach((box) => {
+                    if (box.isIntersecting) {
+                        box.target.style.opacity = 1;
+                        box.target.style.fontSize = '24px';
+                    } else {
+                        //감시중인 박스가 퇴장시
+                        box.target.style.opacity = 0;
+                        box.target.style.fontSize = '18px';
+                    }
+                })
+            })
+            // observer.observe() 는 내가 원하는 html요소를 감지해줌
+            // html요소가 화면에 등장하는지 감시
+            // () 여기에 html요소 넣으면 끝
+            // div박스를 찾아야 하니깐 document.querySelectorAll로 선택
+            let div = document.querySelectorAll('div')
+            // console.log(div[0])
+            observer.observe(div[0])
+            observer.observe(div[1])
+            observer.observe(div[2])
+            observer.observe(div[3])
+        </script>
+
+</body>
+
+</html>
